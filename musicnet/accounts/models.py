@@ -8,6 +8,7 @@ class User(AbstractUser):
     # дополнительные поля для соцсетей
     vk = models.CharField(max_length=255, null=True, blank=True)
     tg = models.CharField(max_length=255, null=True, blank=True)
+    followers = models.ManyToManyField('self', symmetrical=False)
 
     def __str__(self):
         return self.username
