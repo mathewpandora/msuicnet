@@ -7,6 +7,8 @@ from .views import (
     UpdateProfileView,
     ChangePasswordView,
     DeleteAccountView,
+    FollowUserView,
+    verify_email
 )
 
 urlpatterns = [
@@ -17,4 +19,7 @@ urlpatterns = [
     path('profile/update/', UpdateProfileView.as_view()),
     path('change-password/', ChangePasswordView.as_view()),
     path('delete-account/', DeleteAccountView.as_view()),
+    path('users/<int:user_id>/follow/', FollowUserView.as_view(), name='user-follow'),
+    path('verify-email/', verify_email, name='verify-email'),
+
 ]
